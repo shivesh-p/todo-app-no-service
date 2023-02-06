@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <input
+        class="form-control"
+        [(ngModel)]="title"
+        type="text"
+        name="Title"
+        id="Title"
+      />
+    </div>
+    <div class="col-md-6">
+      <textarea
+        class="form-control"
+        name="Description"
+        id=""
+        cols="10"
+        rows="5"
+        [(ngModel)]="desc"
+      ></textarea>
+    </div>
+    <div class="col-md-3">
+      <button
+        class="btn btn-primary"
+        *ngIf="!editMode"
+        (click)="addItemTodoList()"
+      >
+        Add
+      </button>
+      <button *ngIf="editMode" class="btn btn-success" (click)="editSave()">
+        Edit
+      </button>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-todo-list
+        *ngFor="let todo of todoList"
+        [todo]="todo"
+        (editTodoItemList)="editTodoItemMaster(todo)"
+        (deleteTodoItemList)="deleteTodoItemMaster(todo)"
+      ></app-todo-list>
+    </div>
+  </div>
+</div>

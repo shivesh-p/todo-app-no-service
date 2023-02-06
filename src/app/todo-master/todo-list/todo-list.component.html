@@ -1,0 +1,13 @@
+<div *ngIf="todo.id != 0">
+  <div class="card">
+    <div class="card-header">Todo {{ todo.id }}</div>
+    <div class="card-body">
+      <h5 class="card-title">{{ todo.title }}</h5>
+      <p class="card-text">{{ todo.desc }}</p>
+      <button class="btn btn-warning" (click)="editTodoItem()">Edit</button>
+      <button class="ms-2 btn btn-danger" (click)="deleteTodoItem()">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
